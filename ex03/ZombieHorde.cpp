@@ -1,6 +1,8 @@
 #include "ZombieHorde.hpp"
 
 ZombieHorde::ZombieHorde(int N) : _nZombies(N) {
+	if (N <= 0)
+		return;
 	this->_horde = new Zombie[N];
 	for (int i = 0; i < N; i++) {
 		this->_horde[i].setName(this->_randName());
@@ -9,6 +11,8 @@ ZombieHorde::ZombieHorde(int N) : _nZombies(N) {
 }
 
 ZombieHorde::~ZombieHorde() {
+	if (this->_nZombies <= 0)
+		return;
 	delete [] this->_horde;
 }
 
